@@ -82,7 +82,7 @@ public class DrivetrainDistancePID extends PIDSubsystem {
     
     public boolean onRawTarget() {
     	
-    	if (Math.abs(getPIDController().getSetpoint() - Robot.drivetrain.getLeftEncoderDistance()) < tolerance) {
+    	if (Math.abs(getPIDController().getSetpoint() - Robot.vision.getTargetDistance()) < tolerance) {
     		targetCounter = targetCounter + 1;
     	}
     	else {

@@ -2,6 +2,7 @@
 package org.usfirst.frc.team3255.robot;
 
 import org.usfirst.frc.team3255.robot.subsystems.Drivetrain;
+import org.usfirst.frc.team3255.robot.subsystems.Telemetry;
 import org.usfirst.frc.team3255.robot.subsystems.Vision;
 
 import edu.wpi.first.wpilibj.IterativeRobot;
@@ -21,6 +22,7 @@ public class Robot extends IterativeRobot {
 	
 	public static Drivetrain drivetrain = null;
 	public static Vision vision = null;
+	public static Telemetry telemetry = null;
 
 	public static OI oi;
 
@@ -35,6 +37,7 @@ public class Robot extends IterativeRobot {
 	public void robotInit() {
 		vision = new Vision();
 		drivetrain = new Drivetrain();
+		telemetry = new Telemetry();
 		oi = new OI();
 		//chooser.addDefault("Default Auto", new ExampleCommand());
 		// chooser.addObject("My Auto", new MyAutoCommand());
@@ -54,6 +57,7 @@ public class Robot extends IterativeRobot {
 	@Override
 	public void disabledPeriodic() {
 		Scheduler.getInstance().run();
+		telemetry.update();
 	}
 
 	/**
@@ -107,6 +111,7 @@ public class Robot extends IterativeRobot {
 	@Override
 	public void teleopPeriodic() {
 		Scheduler.getInstance().run();
+		telemetry.update();
 	}
 
 	/**

@@ -18,8 +18,6 @@ public class Drivetrain extends Subsystem {
 
 	private CANTalon leftTalon = null;
 	private CANTalon rightTalon = null;
-	private Encoder leftEncoder = null;
-	private Encoder rightEncoder = null;
 	
 	private RobotDrive robotDrive = null;
 	
@@ -27,10 +25,7 @@ public class Drivetrain extends Subsystem {
 		//CANTalons
 		leftTalon = new CANTalon(RobotMap.DRIVETRAIN_LEFT_TALON);
 		rightTalon = new CANTalon(RobotMap.DRIVETRAIN_RIGHT_TALON);
-		
-		leftEncoder = new Encoder(RobotMap.DRIVETRAIN_LEFT_ENCODER_CH_A, RobotMap.DRIVETRAIN_LEFT_ENCODER_CH_B);
-		rightEncoder = new Encoder(RobotMap.DRIVETRAIN_RIGHT_ENCODER_CH_A, RobotMap.DRIVETRAIN_RIGHT_ENCODER_CH_A);
-		
+	
 		leftTalon.enableBrakeMode(true);
 		rightTalon.enableBrakeMode(true);
 		
@@ -46,10 +41,6 @@ public class Drivetrain extends Subsystem {
 		robotDrive.arcadeDrive(-moveSpeed, rotateSpeed);
 	}
 
-	public double getLeftEncoderDistance() {
-		return leftEncoder.get()/RobotPreferences.;
-	}
-	
 	 public void initDefaultCommand() {
 	        // Set the default command for a subsystem here.
 	        //setDefaultCommand(new MySpecialCommand());
