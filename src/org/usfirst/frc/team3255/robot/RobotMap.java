@@ -14,6 +14,9 @@ public class RobotMap {
 	public static final int JOYSTICK_DRIVER = 0;
 	public static final int DRIVER_MOVE_AXIS = 0;
 	public static final int DRIVER_ROTATE_AXIS = 0;
+	public static final int DRIVETRAIN_LEFT_ENCODER_CH_A = 0;
+	public static final int DRIVETRAIN_LEFT_ENCODER_CH_B = 0;
+	public static final int DRIVETRAIN_RIGHT_ENCODER_CH_A = 0;
 	
 	// For example to map the left and right motors, you could define the
 	// following variables to use with your drivetrain subsystem.

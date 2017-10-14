@@ -1,4 +1,4 @@
-package org.usfirst.frc.team3255.robot.subsystems;
+package org.usfirst.frc.team3255.robot;
 
 public class RobotPreferences {
 

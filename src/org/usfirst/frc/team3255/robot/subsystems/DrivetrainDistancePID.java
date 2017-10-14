@@ -1,7 +1,7 @@
 package org.usfirst.frc.team3255.robot.subsystems;
 
 import org.usfirst.frc.team3255.robot.Robot;
-import org.usfirst.frc.team3255.robot2017.RobotPreferences;
+import org.usfirst.frc.team3255.robot.RobotPreferences;
 
 import edu.wpi.first.wpilibj.command.PIDSubsystem;
 
@@ -48,7 +48,7 @@ public class DrivetrainDistancePID extends PIDSubsystem {
         // Return your input value for the PID loop
         // e.g. a sensor, like a potentiometer:
         // yourPot.getAverageVoltage() / kYourMaxVoltage;
-        return Robot.vision.getDistance();
+        return Robot.vision.getTargetDistance();
     }
 
     protected void usePIDOutput(double output) {
@@ -82,7 +82,7 @@ public class DrivetrainDistancePID extends PIDSubsystem {
     
     public boolean onRawTarget() {
     	
-    	if (Math.abs(getPIDController().getSetpoint() - Robot.drivetrain.getEncoderDistance()) < tolerance) {
+    	if (Math.abs(getPIDController().getSetpoint() - Robot.drivetrain.getLeftEncoderDistance()) < tolerance) {
     		targetCounter = targetCounter + 1;
     	}
     	else {

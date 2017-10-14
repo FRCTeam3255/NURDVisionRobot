@@ -21,8 +21,10 @@ public class Vision extends Subsystem {
 	 public double getTargetAngle() {
 		 return table.getNumber ("Angle",-99.9);
 	 }
-
-    // Put methods for controlling this subsystem
+	 
+	 
+	 
+	// Put methods for controlling this subsystem
     // here. Call these from Commands.
 
     public void initDefaultCommand() {
