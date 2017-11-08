@@ -2,6 +2,7 @@
 package org.usfirst.frc.team3255.robot;
 
 
+import org.usfirst.frc.team3255.robot.commands.Autonomous;
 import org.usfirst.frc.team3255.robot.subsystems.Drivetrain;
 import org.usfirst.frc.team3255.robot.subsystems.DrivetrainDistancePID;
 import org.usfirst.frc.team3255.robot.subsystems.Telemetry;
@@ -76,8 +77,10 @@ public class Robot extends IterativeRobot {
 	 */
 	@Override
 	public void autonomousInit() {
-		autonomousCommand = chooser.getSelected();
+		//autonomousCommand = chooser.getSelected();
 
+		autonomousCommand = new Autonomous();
+		
 		/*
 		 * String autoSelected = SmartDashboard.getString("Auto Selector",
 		 * "Default"); switch(autoSelected) { case "My Auto": autonomousCommand

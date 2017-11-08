@@ -18,6 +18,10 @@ public class Telemetry extends Subsystem {
 		SmartDashboard.putNumber("Offset", Robot.vision.getTargetOffset());
 		SmartDashboard.putNumber("Angle", Robot.vision.getTargetAngle());
 	}
+	
+	public void setAutonomousStatus(String statusText) {
+		SmartDashboard.putString("Autonomous Status", statusText);
+	}
 
     public void initDefaultCommand() {
         // Set the default command for a subsystem here.

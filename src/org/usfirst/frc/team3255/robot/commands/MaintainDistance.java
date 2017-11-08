@@ -12,41 +12,48 @@ public class MaintainDistance extends Command {
 	
 	double distance;
 	String commandName;
-	double maxSpeed;
-	private double expireTime;
 
-    public MaintainDistance(String name, double feet, double speed) {
+    public MaintainDistance(String name, double inches) {
         // Use requires() here to declare subsystem dependencies
         // eg. requires(chassis);
     	requires(Robot.drivetrain);
     	requires(Robot.drivetrainDistancePID);
     	
-    	distance = feet;
-    	maxSpeed = speed;
+    	distance = inches;
     	commandName = name;
     }
 
     // Called just before this Command runs the first time
     protected void initialize() {
+    	Robot.telemetry.setAutonomousStatus("Starting " + commandName + ": " + distance / 12 + " feet");
     	Robot.drivetrainDistancePID.setSetpoint(distance);
     	Robot.drivetrainDistancePID.setRawTolerance(RobotPreferences.distanceTolerance());
+    	
+    	Robot.drivetrainDistancePID.enable();
     }
 
     // Called repeatedly when this Command is scheduled to run
     protected void execute() {
+    	Robot.drivetrain.arcadeDrive(Robot.drivetrainDistancePID.getOutput(), 0.0);
     }
 
     // Make this return true when this Command no longer needs to run execute()
     protected boolean isFinished() {
-        return false;
+        return Robot.drivetrainDistancePID.onRawTarget();
     }
 
     // Called once after isFinished returns true
     protected void end() {
+    	Robot.telemetry.setAutonomousStatus("Finished " + commandName + ": " + distance / 12 + " feet");
+    	
+    	Robot.drivetrainDistancePID.disable();
+    	
+    	Robot.drivetrain.arcadeDrive(0.0, 0.0);
     }
 
     // Called when another command which requires one or more of the same
     // subsystems is scheduled to run
     protected void interrupted() {
+    	end();
     }
 }
