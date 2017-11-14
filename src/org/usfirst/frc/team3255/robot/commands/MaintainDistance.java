@@ -25,7 +25,7 @@ public class MaintainDistance extends Command {
 
     // Called just before this Command runs the first time
     protected void initialize() {
-    	Robot.telemetry.setAutonomousStatus("Starting " + commandName + ": " + distance / 12 + " feet");
+    	Robot.telemetry.setAutonomousStatus("Starting " + commandName + ": " + distance + " inches");
     	Robot.drivetrainDistancePID.setSetpoint(distance);
     	Robot.drivetrainDistancePID.setRawTolerance(RobotPreferences.distanceTolerance());
     	
@@ -39,12 +39,13 @@ public class MaintainDistance extends Command {
 
     // Make this return true when this Command no longer needs to run execute()
     protected boolean isFinished() {
-        return Robot.drivetrainDistancePID.onRawTarget();
+        //return Robot.drivetrainDistancePID.onRawTarget();
+    	return false;
     }
 
     // Called once after isFinished returns true
     protected void end() {
-    	Robot.telemetry.setAutonomousStatus("Finished " + commandName + ": " + distance / 12 + " feet");
+    	Robot.telemetry.setAutonomousStatus("Finished " + commandName + ": " + distance + " inches");
     	
     	Robot.drivetrainDistancePID.disable();
     	
