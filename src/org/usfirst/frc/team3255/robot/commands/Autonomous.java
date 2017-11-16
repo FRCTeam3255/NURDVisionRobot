@@ -24,6 +24,7 @@ public class Autonomous extends CommandGroup {
         // e.g. if Command1 requires chassis, and Command2 requires arm,
         // a CommandGroup containing them would require both the chassis and the
         // arm.
-    	addSequential(new MaintainDistance("MaintainDistance", 15));
+    	//Change between GotoDistance and MaintainDistance (Maintain never finishes)
+    	addSequential(new GotoDistance("GotoDistance", 10.0, 0.0));
     }
 }

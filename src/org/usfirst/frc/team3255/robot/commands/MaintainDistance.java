@@ -34,6 +34,7 @@ public class MaintainDistance extends Command {
 
     // Called repeatedly when this Command is scheduled to run
     protected void execute() {
+    	Robot.telemetry.setAutonomousStatus("Running " + commandName + ": " + distance + " inches");
     	Robot.drivetrain.arcadeDrive(Robot.drivetrainDistancePID.getOutput(), 0.0);
     }
 

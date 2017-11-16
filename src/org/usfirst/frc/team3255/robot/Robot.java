@@ -5,6 +5,7 @@ package org.usfirst.frc.team3255.robot;
 import org.usfirst.frc.team3255.robot.commands.Autonomous;
 import org.usfirst.frc.team3255.robot.subsystems.Drivetrain;
 import org.usfirst.frc.team3255.robot.subsystems.DrivetrainDistancePID;
+import org.usfirst.frc.team3255.robot.subsystems.DrivetrainOffsetPID;
 import org.usfirst.frc.team3255.robot.subsystems.Telemetry;
 import org.usfirst.frc.team3255.robot.subsystems.Vision;
 
@@ -26,6 +27,7 @@ public class Robot extends IterativeRobot {
 	public static Drivetrain drivetrain = null;
 	public static Vision vision = null;
 	public static DrivetrainDistancePID drivetrainDistancePID = null;
+	public static DrivetrainOffsetPID drivetrainOffsetPID = null;
 	public static Telemetry telemetry = null;
 	public static OI oi;
 
@@ -41,6 +43,7 @@ public class Robot extends IterativeRobot {
 		vision = new Vision();
 		drivetrain = new Drivetrain();
 		drivetrainDistancePID = new DrivetrainDistancePID();
+		drivetrainOffsetPID = new DrivetrainOffsetPID();
 		telemetry = new Telemetry();
 		oi = new OI();
 		//chooser.addDefault("Default Auto", new ExampleCommand());

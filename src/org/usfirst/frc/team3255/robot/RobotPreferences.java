@@ -1,45 +1,51 @@
 package org.usfirst.frc.team3255.robot;
 
+import edu.wpi.first.wpilibj.Preferences;
+
 public class RobotPreferences {
 
-	public static int distanceTolerance() {
-		// TODO Auto-generated method stub
-		//return 0;
-		return 5;
+	public static double distanceTolerance() {
+		return Preferences.getInstance().getInt("DistanceTolerance", 5);
 	}
 
 	public static double driveDistanceP() {
-		// TODO Auto-generated method stub
-		//return 0;
-		return 0.3;
+		return Preferences.getInstance().getDouble("DriveDistanceP", 0.0);
 	}
 
 	public static double driveDistanceI() {
-		// TODO Auto-generated method stub
-		return 0;
+		return Preferences.getInstance().getDouble("DriveDistanceI", 0.0);
 	}
 
 	public static double driveDistanceD() {
-		// TODO Auto-generated method stub
-		return 0;
+		return Preferences.getInstance().getDouble("DriveDistanceD", 0.0);
 	}
 	
 	public static double maxMoveSpeed() {
-		// TODO Auto-generated method stub
-		//return 0;
-		return 0.5;
+		return Preferences.getInstance().getDouble("MaxMoveSpeed", 0.5);
 	}
 
 	public static double minMoveSpeed() {
-		// TODO Auto-generated method stub
-		//return 0;
-		return 0.1;
+		return Preferences.getInstance().getDouble("MinMoveSpeed", 0.1);
 	}
 
 	public static int targetCount() {
-		// TODO Auto-generated method stub
-		//return 0;
-		return 5;
+		return Preferences.getInstance().getInt("TargetCount", 0);
+	}
+
+	public static double driveOffsetP() {
+		return Preferences.getInstance().getDouble("DriveOffsetP", 0.0);
+	}
+
+	public static double driveOffsetI() {
+		return Preferences.getInstance().getDouble("DriveOffsetI", 0.0); 
+	}
+
+	public static double driveOffsetD() {
+		return Preferences.getInstance().getDouble("DriveOffsetD", 0.0);
+	}
+
+	public static double offsetTolerance() {
+		return Preferences.getInstance().getDouble("OffsetTolerance", 0.1);
 	}
 
 }
