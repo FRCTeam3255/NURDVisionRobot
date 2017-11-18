@@ -6,6 +6,6 @@ This an example implementation of NURDVision, to see how to get NURDVision insta
 [NURDVision GitHub](https://github.com/FRCTeam3255/NURDVision)
 
 ### TO DO:
-- Implement Distance PID
+- ~~Implement Distance PID~~
 - Implement Angle PID
 - Implement Offset PID

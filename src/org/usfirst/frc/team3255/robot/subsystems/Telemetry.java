@@ -14,6 +14,7 @@ public class Telemetry extends Subsystem {
     // here. Call these from Commands.
 	
 	public void update() {
+		// Puts values received from NURDVision on the SmartDashboard
 		SmartDashboard.putNumber("Distance", Robot.vision.getTargetDistance());
 		SmartDashboard.putNumber("Offset", Robot.vision.getTargetOffset());
 		SmartDashboard.putNumber("Angle", Robot.vision.getTargetAngle());

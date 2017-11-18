@@ -18,7 +18,7 @@ public class GotoDistance extends Command {
         // Use requires() here to declare subsystem dependencies
         // eg. requires(chassis);
     	requires(Robot.drivetrain);
-    	requires(Robot.drivetrainDistancePID);
+    	requires(Robot.distancePID);
     	
     	targetDistance = inches;
     	commandName = name;
@@ -28,32 +28,32 @@ public class GotoDistance extends Command {
     // Called just before this Command runs the first time
     protected void initialize() {
     	Robot.telemetry.setAutonomousStatus("Starting " + commandName + ": " + targetDistance + " inches");
-    	Robot.drivetrainDistancePID.setSetpoint(targetDistance);
-    	Robot.drivetrainDistancePID.setRawTolerance(RobotPreferences.distanceTolerance());
-    	Robot.drivetrainOffsetPID.setSetpoint(targetOffset);
-    	Robot.drivetrainOffsetPID.setRawTolerance(RobotPreferences.offsetTolerance());
+    	Robot.distancePID.setSetpoint(targetDistance);
+    	Robot.distancePID.setRawTolerance(RobotPreferences.distanceTolerance());
+    	Robot.offsetPID.setSetpoint(targetOffset);
+    	Robot.offsetPID.setRawTolerance(RobotPreferences.offsetTolerance());
     	
-    	Robot.drivetrainDistancePID.enable();
-    	Robot.drivetrainOffsetPID.enable();
+    	Robot.distancePID.enable();
+    	Robot.offsetPID.enable();
     }
 
     // Called repeatedly when this Command is scheduled to run
     protected void execute() {
     	Robot.telemetry.setAutonomousStatus("Running " + commandName + ": " + targetDistance + " inches");
-    	Robot.drivetrain.arcadeDrive(Robot.drivetrainDistancePID.getOutput(), Robot.drivetrainOffsetPID.getOutput());
+    	Robot.drivetrain.arcadeDrive(Robot.distancePID.getOutput(), Robot.offsetPID.getOutput());
     }
 
     // Make this return true when this Command no longer needs to run execute()
     protected boolean isFinished() {
-        return (Robot.drivetrainDistancePID.onRawTarget() && Robot.drivetrainOffsetPID.onRawTarget());
+        return (Robot.distancePID.onRawTarget() && Robot.offsetPID.onRawTarget());
     }
 
     // Called once after isFinished returns true
     protected void end() {
     	Robot.telemetry.setAutonomousStatus("Finished " + commandName + ": " + targetDistance + " inches");
     	
-    	Robot.drivetrainDistancePID.disable();
-    	Robot.drivetrainOffsetPID.disable();
+    	Robot.distancePID.disable();
+    	Robot.offsetPID.disable();
     	
     	Robot.drivetrain.arcadeDrive(0.0, 0.0);
     }

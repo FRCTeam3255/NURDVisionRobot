@@ -1,12 +1,8 @@
 package org.usfirst.frc.team3255.robot.subsystems;
 
 import org.usfirst.frc.team3255.robot.RobotMap;
-import org.usfirst.frc.team3255.robot.RobotPreferences;
-import org.usfirst.frc.team3255.robot.commands.DriveArcade;
-
 import com.ctre.CANTalon;
 
-import edu.wpi.first.wpilibj.Encoder;
 import edu.wpi.first.wpilibj.RobotDrive;
 import edu.wpi.first.wpilibj.command.Subsystem;
 
@@ -43,8 +39,7 @@ public class Drivetrain extends Subsystem {
 
 	 public void initDefaultCommand() {
 	        // Set the default command for a subsystem here.
-	        //setDefaultCommand(new MySpecialCommand());
-	    	setDefaultCommand(new DriveArcade());    
+	        //setDefaultCommand(new MySpecialCommand()); 
 	}
 }
 

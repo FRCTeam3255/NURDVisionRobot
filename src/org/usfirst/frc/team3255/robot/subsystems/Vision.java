@@ -7,26 +7,26 @@ import edu.wpi.first.wpilibj.networktables.NetworkTable;
  *
  */
 public class Vision extends Subsystem {
+	
+	// Creates a new NetworkTable variable named data
+	NetworkTable data; 
+	
+	public Vision() {
+		 data = NetworkTable.getTable("NURDVision");
+	}
+	
+	public double getTargetDistance() {
+		return data.getNumber("Distance", -99.9);
+	}
+	
+	public double getTargetOffset() {
+		return data.getNumber("Offset", -99.9);
+	}
+	
+	public double getTargetAngle() {
+		 return data.getNumber ("Angle",-99.9);
+	}
 	 
-	NetworkTable table;
-	 public Vision() {
-		 table = NetworkTable.getTable("NURDVision");
-	 }
-	 public double getTargetDistance() {
-		return table.getNumber("Distance", -99.9);
-	 }
-	 public double getTargetOffset() {
-	    return table.getNumber("Offset", -99.9);
-	 }
-	 public double getTargetAngle() {
-		 return table.getNumber ("Angle",-99.9);
-	 }
-	 
-	 
-	 
-	// Put methods for controlling this subsystem
-    // here. Call these from Commands.
-
     public void initDefaultCommand() {
         // Set the default command for a subsystem here.
         //setDefaultCommand(new MySpecialCommand());

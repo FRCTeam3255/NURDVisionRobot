@@ -8,7 +8,7 @@ import edu.wpi.first.wpilibj.command.PIDSubsystem;
 /**
  *
  */
-public class DrivetrainDistancePID extends PIDSubsystem {
+public class DistancePID extends PIDSubsystem {
 
 	double output= 0.0;
 	boolean outputValid = false;
@@ -16,7 +16,7 @@ public class DrivetrainDistancePID extends PIDSubsystem {
 	double tolerance = 0.0;
 	
     // Initialize your subsystem here
-    public DrivetrainDistancePID() {
+    public DistancePID() {
         // Use these to get going:
         // setSetpoint() -  Sets where the PID controller should move the system
         //                  to
