@@ -1,7 +1,8 @@
 package org.usfirst.frc.team3255.robot.subsystems;
 
+import edu.wpi.first.networktables.NetworkTable;
+import edu.wpi.first.networktables.NetworkTableInstance;
 import edu.wpi.first.wpilibj.command.Subsystem;
-import edu.wpi.first.wpilibj.networktables.NetworkTable;
 
 /**
  *
@@ -9,22 +10,22 @@ import edu.wpi.first.wpilibj.networktables.NetworkTable;
 public class Vision extends Subsystem {
 	
 	// Creates a new NetworkTable variable named data
-	NetworkTable data; 
+	NetworkTable visionData; 
 	
 	public Vision() {
-		 data = NetworkTable.getTable("NURDVision");
+		 visionData = NetworkTableInstance.getDefault().getTable("NURDVision");
 	}
 	
 	public double getTargetDistance() {
-		return data.getNumber("Distance", -99.9);
+		return visionData.getEntry("Distance").getDouble(-99.9);
 	}
 	
 	public double getTargetOffset() {
-		return data.getNumber("Offset", -99.9);
+		return visionData.getEntry("Offset").getDouble(-99.9);
 	}
 	
 	public double getTargetAngle() {
-		 return data.getNumber ("Angle",-99.9);
+		 return visionData.getEntry("Angle").getDouble(-99.9);
 	}
 	 
     public void initDefaultCommand() {

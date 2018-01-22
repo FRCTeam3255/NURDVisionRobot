@@ -1,10 +1,10 @@
 package org.usfirst.frc.team3255.robot.subsystems;
 
 import org.usfirst.frc.team3255.robot.RobotMap;
-import com.ctre.CANTalon;
 
-import edu.wpi.first.wpilibj.RobotDrive;
+import edu.wpi.first.wpilibj.Talon;
 import edu.wpi.first.wpilibj.command.Subsystem;
+import edu.wpi.first.wpilibj.drive.DifferentialDrive;
 
 /**
  *
@@ -12,23 +12,20 @@ import edu.wpi.first.wpilibj.command.Subsystem;
 public class Drivetrain extends Subsystem {
 
 
-	private CANTalon leftTalon = null;
-	private CANTalon rightTalon = null;
+	private Talon leftTalon = null;
+	private Talon rightTalon = null;
 	
-	private RobotDrive robotDrive = null;
+	private DifferentialDrive robotDrive = null;
 	
 	public Drivetrain() {
 		//CANTalons
-		leftTalon = new CANTalon(RobotMap.DRIVETRAIN_LEFT_TALON);
-		rightTalon = new CANTalon(RobotMap.DRIVETRAIN_RIGHT_TALON);
-	
-		leftTalon.enableBrakeMode(true);
-		rightTalon.enableBrakeMode(true);
+		leftTalon = new Talon(RobotMap.DRIVETRAIN_LEFT_TALON);
+		rightTalon = new Talon(RobotMap.DRIVETRAIN_RIGHT_TALON);
 		
 		leftTalon.setSafetyEnabled(false);
 		rightTalon.setSafetyEnabled(false);
 		
-		robotDrive = new RobotDrive(leftTalon, rightTalon);
+		robotDrive = new DifferentialDrive(leftTalon, rightTalon);
 		
 		robotDrive.setSafetyEnabled(false);
 	}
