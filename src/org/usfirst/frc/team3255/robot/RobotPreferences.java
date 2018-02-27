@@ -39,8 +39,6 @@ public class RobotPreferences {
 		return Preferences.getInstance().getDouble("OffsetTolerance", 0.1);
 	}
 	
-	
-	
 	public static double maxMoveSpeed() {
 		return Preferences.getInstance().getDouble("MaxMoveSpeed", 0.5);
 	}
@@ -53,4 +51,16 @@ public class RobotPreferences {
 		return Preferences.getInstance().getInt("TargetCount", 0);
 	}
 
+	// ====== Cube Distance & Offset ====== //
+	public static double cubeDistanceTolerance() {
+		return Preferences.getInstance().getDouble("CubeDistanceTolerance", 0.0);
+	}
+
+	public static double cubeOffsetTolerance() {
+		return Preferences.getInstance().getDouble("CubeOffsetTolerance", 0.0);
+	}
+
+	public static double cubeDistanceSetpoint() {
+		return Preferences.getInstance().getDouble("CubeDistanceSetpoint", 15.0);
+	}
 }

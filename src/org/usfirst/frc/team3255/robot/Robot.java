@@ -4,6 +4,8 @@ package org.usfirst.frc.team3255.robot;
 
 import org.usfirst.frc.team3255.robot.commands.Autonomous;
 import org.usfirst.frc.team3255.robot.subsystems.Drivetrain;
+import org.usfirst.frc.team3255.robot.subsystems.CubeDistancePID;
+import org.usfirst.frc.team3255.robot.subsystems.CubeOffsetPID;
 import org.usfirst.frc.team3255.robot.subsystems.DistancePID;
 import org.usfirst.frc.team3255.robot.subsystems.OffsetPID;
 import org.usfirst.frc.team3255.robot.subsystems.Telemetry;
@@ -26,6 +28,8 @@ public class Robot extends IterativeRobot {
 	public static Vision vision = null;
 	public static DistancePID distancePID = null;
 	public static OffsetPID offsetPID = null;
+	public static CubeDistancePID cubeDistancePID = null;
+	public static CubeOffsetPID cubeOffsetPID = null;
 	public static Telemetry telemetry = null;
 	public static OI oi;
 
@@ -41,6 +45,8 @@ public class Robot extends IterativeRobot {
 		drivetrain = new Drivetrain();
 		distancePID = new DistancePID();
 		offsetPID = new OffsetPID();
+		cubeDistancePID = new CubeDistancePID();
+		cubeOffsetPID = new CubeOffsetPID();
 		telemetry = new Telemetry();
 		oi = new OI();
 	}

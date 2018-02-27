@@ -32,6 +32,14 @@ public class Vision extends Subsystem {
 		return visionData.getEntry("TargetFound").getBoolean(false);
 	}
 	
+	public double getCubeDistance() {
+		return visionData.getEntry("CubeDistance").getDouble(-99.9);
+	}
+	
+	public double getCubeOffset() {
+		return visionData.getEntry("CubeOffset").getDouble(-99.9);
+	}
+	
 	public void setHue(int hueLow, int hueHigh) {
 		Number[] hue = {hueLow, hueHigh};
 		visionData.getEntry("Hue").setNumberArray(hue);

@@ -82,7 +82,7 @@ public class DistancePID extends PIDSubsystem {
     
     public boolean onRawTarget() {
     	
-    	if (Math.abs(getPIDController().getSetpoint() - Robot.vision.getTargetDistance()) < tolerance) {
+    	if (Math.abs(getPIDController().getSetpoint() - returnPIDInput()) < tolerance) {
     		targetCounter = targetCounter + 1;
     	}
     	else {
