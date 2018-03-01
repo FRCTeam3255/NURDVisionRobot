@@ -1,5 +1,7 @@
 package org.usfirst.frc.team3255.robot.subsystems;
 
+import org.usfirst.frc.team3255.robot.RobotPreferences;
+
 import edu.wpi.first.networktables.NetworkTable;
 import edu.wpi.first.networktables.NetworkTableInstance;
 import edu.wpi.first.wpilibj.command.Subsystem;
@@ -57,6 +59,10 @@ public class Vision extends Subsystem {
 	
 	public void setShowRaw(boolean showRaw) {
 		visionData.getEntry("showRaw").setBoolean(showRaw);
+	}
+	
+	public void update() {
+		setShowRaw(RobotPreferences.showRaw());
 	}
 	 
     public void initDefaultCommand() {

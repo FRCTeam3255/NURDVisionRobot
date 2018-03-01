@@ -3,10 +3,10 @@ package org.usfirst.frc.team3255.robot;
 
 
 import org.usfirst.frc.team3255.robot.commands.Autonomous;
-import org.usfirst.frc.team3255.robot.subsystems.Drivetrain;
 import org.usfirst.frc.team3255.robot.subsystems.CubeDistancePID;
 import org.usfirst.frc.team3255.robot.subsystems.CubeOffsetPID;
 import org.usfirst.frc.team3255.robot.subsystems.DistancePID;
+import org.usfirst.frc.team3255.robot.subsystems.Drivetrain;
 import org.usfirst.frc.team3255.robot.subsystems.OffsetPID;
 import org.usfirst.frc.team3255.robot.subsystems.Telemetry;
 import org.usfirst.frc.team3255.robot.subsystems.Vision;
@@ -65,6 +65,7 @@ public class Robot extends IterativeRobot {
 	public void disabledPeriodic() {
 		Scheduler.getInstance().run();
 		telemetry.update();
+		vision.update();
 	}
 
 	/**
@@ -95,6 +96,7 @@ public class Robot extends IterativeRobot {
 	public void autonomousPeriodic() {
 		Scheduler.getInstance().run();
 		telemetry.update();
+		vision.update();
 	}
 
 	@Override
@@ -114,6 +116,7 @@ public class Robot extends IterativeRobot {
 	public void teleopPeriodic() {
 		Scheduler.getInstance().run();
 		telemetry.update();
+		vision.update();
 	}
 
 	/**

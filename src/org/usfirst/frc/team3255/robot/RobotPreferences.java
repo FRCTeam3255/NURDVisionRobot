@@ -6,7 +6,7 @@ public class RobotPreferences {
 
 	// ====== Drive Distance PID Values ====== //
 	public static double driveDistanceP() {
-		return Preferences.getInstance().getDouble("DriveDistanceP", 0.0);
+		return Preferences.getInstance().getDouble("DriveDistanceP", 1.0);
 	}
 
 	public static double driveDistanceI() {
@@ -24,7 +24,7 @@ public class RobotPreferences {
 	
 	// ====== Drive Offset PID Values ====== //
 	public static double driveOffsetP() {
-		return Preferences.getInstance().getDouble("DriveOffsetP", 0.0);
+		return Preferences.getInstance().getDouble("DriveOffsetP", 1.0);
 	}
 
 	public static double driveOffsetI() {
@@ -40,20 +40,20 @@ public class RobotPreferences {
 	}
 	
 	public static double maxMoveSpeed() {
-		return Preferences.getInstance().getDouble("MaxMoveSpeed", 0.5);
+		return Preferences.getInstance().getDouble("MaxMoveSpeed", 1.0);
 	}
 
 	public static double minMoveSpeed() {
-		return Preferences.getInstance().getDouble("MinMoveSpeed", 0.1);
+		return Preferences.getInstance().getDouble("MinMoveSpeed", 0.0);
 	}
 
 	public static int targetCount() {
-		return Preferences.getInstance().getInt("TargetCount", 0);
+		return Preferences.getInstance().getInt("TargetCount", 5);
 	}
 
 	// ====== Cube Distance & Offset ====== //
 	public static double cubeDistanceTolerance() {
-		return Preferences.getInstance().getDouble("CubeDistanceTolerance", 0.0);
+		return Preferences.getInstance().getDouble("CubeDistanceTolerance", 1.0);
 	}
 
 	public static double cubeOffsetTolerance() {
@@ -62,5 +62,9 @@ public class RobotPreferences {
 
 	public static double cubeDistanceSetpoint() {
 		return Preferences.getInstance().getDouble("CubeDistanceSetpoint", 15.0);
+	}
+	
+	public static boolean showRaw() {
+		return Preferences.getInstance().getBoolean("ShowRaw", false);
 	}
 }

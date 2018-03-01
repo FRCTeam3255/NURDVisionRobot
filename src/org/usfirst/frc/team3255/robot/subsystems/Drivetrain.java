@@ -2,7 +2,9 @@ package org.usfirst.frc.team3255.robot.subsystems;
 
 import org.usfirst.frc.team3255.robot.RobotMap;
 
-import edu.wpi.first.wpilibj.Talon;
+import com.ctre.phoenix.motorcontrol.NeutralMode;
+import com.ctre.phoenix.motorcontrol.can.WPI_TalonSRX;
+
 import edu.wpi.first.wpilibj.command.Subsystem;
 import edu.wpi.first.wpilibj.drive.DifferentialDrive;
 
@@ -12,18 +14,21 @@ import edu.wpi.first.wpilibj.drive.DifferentialDrive;
 public class Drivetrain extends Subsystem {
 
 
-	private Talon leftTalon = null;
-	private Talon rightTalon = null;
+	private WPI_TalonSRX leftTalon = null;
+	private WPI_TalonSRX rightTalon = null;
 	
 	private DifferentialDrive robotDrive = null;
 	
 	public Drivetrain() {
 		//CANTalons
-		leftTalon = new Talon(RobotMap.DRIVETRAIN_LEFT_TALON);
-		rightTalon = new Talon(RobotMap.DRIVETRAIN_RIGHT_TALON);
+		leftTalon = new WPI_TalonSRX(RobotMap.DRIVETRAIN_LEFT_TALON);
+		rightTalon = new WPI_TalonSRX(RobotMap.DRIVETRAIN_RIGHT_TALON);
 		
 		leftTalon.setSafetyEnabled(false);
 		rightTalon.setSafetyEnabled(false);
+		
+		leftTalon.setNeutralMode(NeutralMode.Brake);
+		rightTalon.setNeutralMode(NeutralMode.Brake);
 		
 		robotDrive = new DifferentialDrive(leftTalon, rightTalon);
 		
