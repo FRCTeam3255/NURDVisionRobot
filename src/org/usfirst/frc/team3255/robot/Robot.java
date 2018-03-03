@@ -7,6 +7,7 @@ import org.usfirst.frc.team3255.robot.subsystems.CubeDistancePID;
 import org.usfirst.frc.team3255.robot.subsystems.CubeOffsetPID;
 import org.usfirst.frc.team3255.robot.subsystems.DistancePID;
 import org.usfirst.frc.team3255.robot.subsystems.Drivetrain;
+import org.usfirst.frc.team3255.robot.subsystems.Navigation;
 import org.usfirst.frc.team3255.robot.subsystems.OffsetPID;
 import org.usfirst.frc.team3255.robot.subsystems.Telemetry;
 import org.usfirst.frc.team3255.robot.subsystems.Vision;
@@ -26,6 +27,7 @@ public class Robot extends IterativeRobot {
 	
 	public static Drivetrain drivetrain = null;
 	public static Vision vision = null;
+	public static Navigation navigation = null;
 	public static DistancePID distancePID = null;
 	public static OffsetPID offsetPID = null;
 	public static CubeDistancePID cubeDistancePID = null;
@@ -43,6 +45,7 @@ public class Robot extends IterativeRobot {
 	public void robotInit() {
 		vision = new Vision();
 		drivetrain = new Drivetrain();
+		navigation = new Navigation();
 		distancePID = new DistancePID();
 		offsetPID = new OffsetPID();
 		cubeDistancePID = new CubeDistancePID();

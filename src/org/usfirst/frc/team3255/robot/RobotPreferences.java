@@ -21,6 +21,9 @@ public class RobotPreferences {
 		return Preferences.getInstance().getInt("DistanceTolerance", 5);
 	}
 	
+	public static double goToDistanceSetpoint() {
+		return Preferences.getInstance().getDouble("GoToDistanceSetpoint", 0.0);
+	}
 	
 	// ====== Drive Offset PID Values ====== //
 	public static double driveOffsetP() {
